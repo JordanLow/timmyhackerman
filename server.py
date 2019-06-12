@@ -1,7 +1,7 @@
 import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(('',8888))
+sock.bind(('',7859))
 
 sock.listen(5)
 
