@@ -14,5 +14,5 @@ sock.listen(5)
 while True:
     clientsock, address = sock.accept()
     print(f"Connection from {address} has been established")
-    message = clientsocket.recv(9999)
+    message = clientsock.recv(9999)
     print(message.decode("utf-8"))
