@@ -3,6 +3,9 @@ import os
 
 port = int(os.environ.get("PORT", 8081))
 
+print(port)
+
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind(('',port))
 
