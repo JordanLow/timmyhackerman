@@ -1,7 +1,7 @@
 import socket
 import os
  
-HOST,PORT = '127.0.0.1', os.environ.get("PORT", 8082)
+HOST,PORT = '127.0.0.1', int(os.environ.get("PORT", 8082))
  
 my_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 my_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
