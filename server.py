@@ -22,3 +22,14 @@ while True:
 
         print("Client Says: "+ data)
         clientsock.sendall("Server Says: Hi")
+    except Exception as e:
+            header = 'HTTP/1.1 404 Not Found\n\n'
+            response = '''<html>
+                          <body>
+                            <center>
+                             <h3>Error 404: File not found</h3>
+                             <p>Python HTTP Server</p>
+                            </center>
+                          </body>
+                        </html>'''.encode('utf-8')
+       
