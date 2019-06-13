@@ -39,9 +39,9 @@ while True:
                 final_response = header.encode('utf-8')
                 final_response += response
                 clientsock.send(final_response)
-            except Exception as e:
-                print(e)
+            except:
+                print("Oops! Something went wrong!")
  
-    except Exception as e:
-            print(e)
+    except:
+            print("Oops! Something went wrong!")
        
