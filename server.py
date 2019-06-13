@@ -1,9 +1,14 @@
 from flask import Flask, render_template
 app = Flask(__name__, static_folder='static') 
 
-@app.route('/')
+@app.route('/index.html')
 def hello_world():
     return render_template('index.html')
+
+@app.route('/', methods=['POST'])
+def get_data():
+    print('Recieved from client: {}'.format(request.data))
+    return Response('We recieved something…')
 
 if __name__ == '__main__':
     from os import environ
