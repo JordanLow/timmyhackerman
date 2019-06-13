@@ -5,7 +5,7 @@ port = int(os.environ.get("PORT", 8081))
 
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(('',port))
+sock.bind(('0.0.0.0',port))
 
 print(socket.gethostbyname(socket.gethostname()), port)
 
@@ -19,17 +19,29 @@ while True:
         
         if not data: 
             break
+            
+        
 
         print("Client Says: "+ data)
         clientsock.sendall("Server Says: Hi")
+        
+        try:
+            req = data.split(' ')[1].split('?')[0].lstrip('/')
+            
+            if req = '/':
+                req = 'index.html'
+                file = open(myfile,'rb') # open file , r => read , b => byte format
+                response = file.read()
+                file.close()
+                header = 'HTTP/1.1 200 OK\n'
+                mimetype = 'text/html'
+                header += 'Content-Type: '+str(mimetype)+'\n\n'
+                final_response = header.encode('utf-8')
+                final_response += response
+                clientsock.send(final_response)
+            except Exception as e:
+                print(e)
+ 
     except Exception as e:
-            header = 'HTTP/1.1 404 Not Found\n\n'
-            response = '''<html>
-                          <body>
-                            <center>
-                             <h3>Error 404: File not found</h3>
-                             <p>Python HTTP Server</p>
-                            </center>
-                          </body>
-                        </html>'''.encode('utf-8')
+            print(e)
        
