@@ -3,9 +3,11 @@ app = Flask(__name__, static_folder='static')
 
 @app.route('/', methods=['GET', 'POST'])
 def get_data():
+    data = ''
     if request.method == 'POST':
         print('Recieved from client: {}'.format(request.data))
-    return render_template('index.html', data=requests.data)
+        data = request.data
+    return render_template('index.html', data=data)
 
 if __name__ == '__main__':
     from os import environ
