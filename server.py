@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import *
 app = Flask(__name__, static_folder='static') 
 
 @app.route('/', methods=['GET', 'POST'])
