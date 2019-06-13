@@ -28,7 +28,7 @@ while True:
         try:
             req = data.split(' ')[1].split('?')[0].lstrip('/')
             
-            if req = '/':
+            if req == '/':
                 req = 'index.html'
                 file = open(myfile,'rb') # open file , r => read , b => byte format
                 response = file.read()
