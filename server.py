@@ -1,3 +1,4 @@
+import sys
 from flask import *
 app = Flask(__name__, static_folder='static') 
 
@@ -6,6 +7,7 @@ def get_data():
     data = ''
     if request.method == 'POST':
         print('Recieved from client: {}'.format(request.data))
+        sys.stdout.flush()
         data = request.data
     return render_template('index.html', data=data)
 
